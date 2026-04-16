@@ -29,12 +29,14 @@ See [`BENCHMARK_LOG.md`](BENCHMARK_LOG.md) for the full chronological run.
 
 ## Hardware under test
 
+This artefact is an **MLX-only quantisation** (TurboQuant+ Config-I, 2-bit experts / 4-bit attention). The format is not loadable by vLLM, TGI, or ROCm-compatible stacks — they need a separately-published AWQ/GPTQ/GGUF export of the base model. So NVIDIA and AMD are N/A for *this* artefact; a CUDA-friendly quant of `MiniMaxAI/MiniMax-M2.7` would be tracked as its own entry.
+
 | Machine | Status |
 |---|---|
 | Mac Studio M3 Ultra, 96 GB | active |
 | Mac Studio M3 Ultra + MBP M1 Max 32 GB via `mlx.distributed` | planned |
-| NVIDIA GPU backend (vllm / TGI) | planned — pending hardware |
-| AMD ROCm backend | planned — pending hardware |
+| NVIDIA (CUDA) | N/A — MLX-only format |
+| AMD (ROCm) | N/A — MLX-only format |
 
 ## Key observations so far
 

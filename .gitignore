@@ -1,0 +1,30 @@
+# Weights, venvs, caches — never committed
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+*.onnx
+weights/
+models/**/weights/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Logs from servers / downloads — keep BENCHMARK_LOG.md, ignore raw streams
+server.log
+download.log
+copy.log
+smoke_test.log
+smoke_warm.log
+*.tmp
+
+# lighteval raw outputs are committed under results/, but ignore any stray caches
+.lighteval_cache/

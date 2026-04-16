@@ -2,6 +2,20 @@
 
 This document goes deeper than the README on *why* we run each benchmark the way we do, and what each number does and does not tell you.
 
+## Protocol authority
+
+Evaluation protocols in this repo come from, in order of precedence:
+
+1. **The specific model card for the artefact under test.** If the quant author published exact numbers with an exact methodology, we reproduce that methodology verbatim. Their numbers are the ground truth we're checking. Every `models/<artefact>/PROTOCOL.md` pins the card URL and the exact parameters.
+2. **Upstream quantisation-family documentation.** For TurboQuant+ artefacts, the [TurboQuant+ getting-started guide](https://github.com/TheTom/turboquant_plus/blob/main/docs/getting-started.md) defines the cross-platform path (`llama-cpp-turboquant` on GGUF, `llama-perplexity -c 512 --chunks 20` on wikitext). This is the yardstick we carry between MLX / CUDA / ROCm variants of the same quant policy.
+3. **OpenEvals guidebook defaults.** When neither (1) nor (2) dictates a choice, we fall back to the [HuggingFace OpenEvals guidebook](https://huggingface.co/spaces/OpenEvals/evaluation-guidebook) — `lighteval` with its canonical task configurations.
+
+Where (1) and (2) disagree, the model card wins for that specific artefact, and (2) is still run in parallel as the portable reference number for comparison with a future cross-platform re-quant. See the MiniMax-M2.7 `PROTOCOL.md` for a concrete example of this dual-run pattern.
+
+## Artefact separation across backends
+
+A TurboQuant+ policy (e.g. Config-I) can be realised as an MLX safetensors export or as a GGUF export via `llama-cpp-turboquant`. These are **distinct artefacts** that happen to share a quantisation policy. We track each as its own entry under `models/` — they run on different stacks, publish different numbers, and can drift in quality from each other. The repo does **not** pretend a single row of numbers applies across backends.
+
 ---
 
 ## 1. Automatic benchmarks

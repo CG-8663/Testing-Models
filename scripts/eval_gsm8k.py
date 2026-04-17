@@ -30,12 +30,19 @@ SYSTEM_PROMPT = (
 
 USER_TEMPLATE = """Question: {question}"""
 
+THINK_RE = re.compile(r"<think>.*?</think>", re.DOTALL)
 ANSWER_RE = re.compile(r"[Aa]nswer\s*[:\-]\s*\$?\s*([\-\d,]+)", re.MULTILINE)
 NUMBER_RE = re.compile(r"([\-]?\d[\d,]*)")
 
 
+def strip_think(content: str) -> str:
+    """Remove <think>...</think> blocks (Qwen-style inline reasoning)."""
+    return THINK_RE.sub("", content).strip() if content else ""
+
+
 def extract_number(text: str) -> int | None:
     """Extract the final numeric answer from model output."""
+    text = strip_think(text)
     if not text:
         return None
     m = ANSWER_RE.search(text)

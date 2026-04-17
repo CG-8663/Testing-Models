@@ -35,11 +35,18 @@ B. {b}
 C. {c}
 D. {d}"""
 
+THINK_RE = re.compile(r"<think>.*?</think>", re.DOTALL)
 ANSWER_RE = re.compile(r"[Aa]nswer\s*[:\-]\s*\(?([ABCD])\)?", re.MULTILINE)
 LAST_LETTER_RE = re.compile(r"(?<![A-Za-z])([ABCD])(?![A-Za-z])")
 
 
+def strip_think(content: str) -> str:
+    """Remove <think>...</think> blocks (Qwen-style inline reasoning)."""
+    return THINK_RE.sub("", content).strip() if content else ""
+
+
 def extract_answer(content: str) -> str | None:
+    content = strip_think(content)
     if not content:
         return None
     m = ANSWER_RE.search(content)

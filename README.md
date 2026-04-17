@@ -117,6 +117,7 @@ Testing-Models/
 | Model | Quant | Size | Apple | NVIDIA | AMD |
 |---|---|---|---|---|---|
 | [`thetom-ai/MiniMax-M2.7-ConfigI-MLX`](models/thetom-ai--MiniMax-M2.7-ConfigI-MLX) | TurboQuant+ Config-I (2-bit experts / 4-bit attn / FP boundary) | 87 GB | **94% MMLU**, 37 tok/s @ 128 ctx | N/A — MLX-only | N/A — MLX-only |
+| [`mlx-community/Qwen3.6-35B-A3B-4bit`](models/mlx-community--Qwen3.6-35B-A3B-4bit) | 4-bit affine (standard mlx-community) | 19 GB | ⏳ running overnight 2026-04-17 | N/A — MLX-only | N/A — MLX-only |
 
 Quantised artefacts are backend-specific by format: MLX safetensors don't load on CUDA/ROCm, and AWQ/GPTQ don't load on MLX. A different quant of the same base model is tracked as a separate entry in this table.
 

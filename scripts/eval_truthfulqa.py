@@ -29,11 +29,18 @@ SYSTEM_PROMPT = (
     "'Answer: X' where X is the letter of the correct choice."
 )
 
+THINK_RE = re.compile(r"<think>.*?</think>", re.DOTALL)
 ANSWER_RE = re.compile(r"[Aa]nswer\s*[:\-]\s*\(?([A-Z])\)?", re.MULTILINE)
 LAST_LETTER_RE = re.compile(r"(?<![A-Za-z])([A-Z])(?![A-Za-z])")
 
 
+def strip_think(content: str) -> str:
+    """Remove <think>...</think> blocks (Qwen-style inline reasoning)."""
+    return THINK_RE.sub("", content).strip() if content else ""
+
+
 def extract_answer(content: str, n_choices: int) -> str | None:
+    content = strip_think(content)
     if not content:
         return None
     valid = set(LETTERS[:n_choices])

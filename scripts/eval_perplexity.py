@@ -28,7 +28,7 @@ def nll_over_tokens(model, token_ids: mx.array) -> tuple[float, int]:
     logits = model(ids).astype(mx.float32)
     shift_logits = logits[:, :-1, :]
     shift_labels = ids[:, 1:]
-    log_probs = mx.log_softmax(shift_logits, axis=-1)
+    log_probs = shift_logits - mx.logsumexp(shift_logits, axis=-1, keepdims=True)
     gathered = mx.take_along_axis(log_probs, shift_labels[..., None], axis=-1)[..., 0]
     nll = (-gathered).sum().item()
     n = shift_labels.size

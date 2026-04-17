@@ -1,0 +1,442 @@
+run_all starting at 20260416T175847Z
+model_slug=thetom-ai--MiniMax-M2.7-ConfigI-MLX
+served_id=mlx-community/Qwen3.5-27B-Claude-4.6-Opus-Distilled-MLX-4bit
+model_dir=/Volumes/Chronara-Storage/Projects/test models/models/MiniMax-M2.7-ConfigI-MLX
+results_dir=/Volumes/Chronara-Storage/Projects/test models/Testing-Models/models/thetom-ai--MiniMax-M2.7-ConfigI-MLX/results/apple-silicon
+
+=== PHASE A_mmlu starting (17:58:47Z) ===
+[meta] run_id=20260416T175848Z
+
+=== abstract_algebra ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+   1/20  gold=A  pred=A  OK  lat=47.15s  ctoks=1784
+   2/20  gold=A  pred=A  OK  lat=20.48s  ctoks=774
+   3/20  gold=D  pred=D  OK  lat=29.33s  ctoks=1125
+   4/20  gold=D  pred=D  OK  lat=19.88s  ctoks=760
+   5/20  gold=C  pred=C  OK  lat=25.01s  ctoks=954
+   6/20  gold=B  pred=B  OK  lat=25.59s  ctoks=976
+   7/20  gold=D  pred=D  OK  lat=18.88s  ctoks=719
+   8/20  gold=B  pred=B  OK  lat=32.62s  ctoks=1251
+   9/20  gold=B  pred=B  OK  lat=33.9s  ctoks=1300
+  10/20  gold=C  pred=C  OK  lat=21.1s  ctoks=806
+  11/20  gold=D  pred=D  OK  lat=26.15s  ctoks=999
+  12/20  gold=C  pred=C  OK  lat=21.56s  ctoks=826
+  13/20  gold=B  pred=A  XX  lat=18.21s  ctoks=692
+  14/20  gold=A  pred=A  OK  lat=16.2s  ctoks=616
+  15/20  gold=D  pred=D  OK  lat=29.34s  ctoks=1123
+  16/20  gold=C  pred=B  XX  lat=23.57s  ctoks=899
+  17/20  gold=B  pred=B  OK  lat=20.02s  ctoks=766
+  18/20  gold=D  pred=D  OK  lat=30.25s  ctoks=1160
+  19/20  gold=B  pred=B  OK  lat=9.75s  ctoks=359
+  20/20  gold=C  pred=C  OK  lat=15.47s  ctoks=587
+  -> 18/20 = 90.0%
+
+=== anatomy ===
+Generating test split:   0%|          | 0/135 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 135/135 [00:00<00:00, 3333.26 examples/s]
+Generating validation split:   0%|          | 0/14 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 14/14 [00:00<00:00, 15709.00 examples/s]
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 6765.01 examples/s]
+   1/20  gold=C  pred=C  OK  lat=22.2s  ctoks=840
+   2/20  gold=A  pred=A  OK  lat=18.32s  ctoks=699
+   3/20  gold=B  pred=D  XX  lat=20.92s  ctoks=801
+   4/20  gold=D  pred=D  OK  lat=20.77s  ctoks=791
+   5/20  gold=D  pred=D  OK  lat=25.99s  ctoks=992
+   6/20  gold=D  pred=D  OK  lat=5.95s  ctoks=214
+   7/20  gold=B  pred=B  OK  lat=12.06s  ctoks=453
+   8/20  gold=A  pred=A  OK  lat=7.46s  ctoks=274
+   9/20  gold=C  pred=C  OK  lat=10.24s  ctoks=383
+  10/20  gold=C  pred=C  OK  lat=15.78s  ctoks=597
+  11/20  gold=C  pred=A  XX  lat=9.65s  ctoks=361
+  12/20  gold=B  pred=B  OK  lat=23.23s  ctoks=882
+  13/20  gold=B  pred=A  XX  lat=20.74s  ctoks=789
+  14/20  gold=B  pred=B  OK  lat=7.86s  ctoks=285
+  15/20  gold=A  pred=A  OK  lat=25.51s  ctoks=973
+  16/20  gold=C  pred=C  OK  lat=16.82s  ctoks=640
+  17/20  gold=D  pred=D  OK  lat=24.85s  ctoks=951
+  18/20  gold=D  pred=D  OK  lat=22.53s  ctoks=864
+  19/20  gold=C  pred=C  OK  lat=18.55s  ctoks=707
+  20/20  gold=B  pred=B  OK  lat=16.33s  ctoks=616
+  -> 17/20 = 85.0%
+
+=== astronomy ===
+Generating test split:   0%|          | 0/152 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 152/152 [00:00<00:00, 30864.36 examples/s]
+Generating validation split:   0%|          | 0/16 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 16/16 [00:00<00:00, 6223.58 examples/s]
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 3129.14 examples/s]
+   1/20  gold=C  pred=C  OK  lat=23.6s  ctoks=885
+   2/20  gold=B  pred=B  OK  lat=17.31s  ctoks=660
+   3/20  gold=B  pred=B  OK  lat=14.64s  ctoks=548
+   4/20  gold=D  pred=D  OK  lat=10.65s  ctoks=396
+   5/20  gold=D  pred=D  OK  lat=19.33s  ctoks=739
+   6/20  gold=D  pred=D  OK  lat=19.21s  ctoks=728
+   7/20  gold=D  pred=D  OK  lat=8.87s  ctoks=329
+   8/20  gold=B  pred=B  OK  lat=30.84s  ctoks=1177
+   9/20  gold=D  pred=D  OK  lat=20.23s  ctoks=774
+  10/20  gold=D  pred=D  OK  lat=16.52s  ctoks=621
+  11/20  gold=D  pred=D  OK  lat=25.72s  ctoks=978
+  12/20  gold=C  pred=C  OK  lat=17.43s  ctoks=653
+  13/20  gold=A  pred=A  OK  lat=23.49s  ctoks=887
+  14/20  gold=D  pred=D  OK  lat=12.98s  ctoks=488
+  15/20  gold=C  pred=C  OK  lat=14.85s  ctoks=561
+  16/20  gold=B  pred=B  OK  lat=18.36s  ctoks=697
+  17/20  gold=D  pred=A  XX  lat=30.53s  ctoks=1163
+  18/20  gold=C  pred=C  OK  lat=19.15s  ctoks=727
+  19/20  gold=D  pred=D  OK  lat=10.77s  ctoks=402
+  20/20  gold=D  pred=D  OK  lat=25.1s  ctoks=941
+  -> 19/20 = 95.0%
+
+=== college_computer_science ===
+Generating test split:   0%|          | 0/100 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 100/100 [00:00<00:00, 23100.20 examples/s]
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 3275.64 examples/s]
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 1851.14 examples/s]
+   1/20  gold=D  pred=D  OK  lat=27.33s  ctoks=1025
+   2/20  gold=B  pred=B  OK  lat=18.3s  ctoks=691
+   3/20  gold=D  pred=A  XX  lat=15.43s  ctoks=571
+   4/20  gold=A  pred=A  OK  lat=14.66s  ctoks=549
+   5/20  gold=A  pred=A  OK  lat=20.36s  ctoks=770
+   6/20  gold=A  pred=A  OK  lat=34.75s  ctoks=1318
+   7/20  gold=D  pred=D  OK  lat=14.24s  ctoks=533
+   8/20  gold=D  pred=D  OK  lat=12.7s  ctoks=477
+   9/20  gold=B  pred=B  OK  lat=39.41s  ctoks=1493
+  10/20  gold=A  pred=A  OK  lat=27.7s  ctoks=1042
+  11/20  gold=B  pred=B  OK  lat=29.25s  ctoks=1094
+  12/20  gold=D  pred=D  OK  lat=28.49s  ctoks=1077
+  13/20  gold=A  pred=A  OK  lat=27.26s  ctoks=1029
+  14/20  gold=C  pred=C  OK  lat=39.25s  ctoks=1493
+  15/20  gold=C  pred=C  OK  lat=20.23s  ctoks=770
+  16/20  gold=D  pred=D  OK  lat=11.8s  ctoks=438
+  17/20  gold=B  pred=B  OK  lat=26.8s  ctoks=1019
+  18/20  gold=B  pred=B  OK  lat=10.66s  ctoks=390
+  19/20  gold=C  pred=C  OK  lat=32.59s  ctoks=1244
+  20/20  gold=D  pred=C  XX  lat=30.81s  ctoks=1171
+  -> 18/20 = 90.0%
+
+=== college_physics ===
+Generating test split:   0%|          | 0/102 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 102/102 [00:00<00:00, 40238.81 examples/s]
+Generating validation split:   0%|          | 0/11 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 11/11 [00:00<00:00, 8799.80 examples/s]
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 3866.43 examples/s]
+   1/20  gold=A  pred=A  OK  lat=27.07s  ctoks=1023
+   2/20  gold=D  pred=D  OK  lat=7.69s  ctoks=281
+   3/20  gold=C  pred=C  OK  lat=21.63s  ctoks=815
+   4/20  gold=B  pred=B  OK  lat=27.1s  ctoks=1031
+   5/20  gold=D  pred=D  OK  lat=27.53s  ctoks=1044
+   6/20  gold=D  pred=D  OK  lat=16.23s  ctoks=606
+   7/20  gold=A  pred=A  OK  lat=21.13s  ctoks=804
+   8/20  gold=B  pred=B  OK  lat=12.14s  ctoks=451
+   9/20  gold=A  pred=A  OK  lat=41.16s  ctoks=1570
+  10/20  gold=B  pred=B  OK  lat=10.79s  ctoks=399
+  11/20  gold=C  pred=C  OK  lat=16.89s  ctoks=636
+  12/20  gold=D  pred=D  OK  lat=14.86s  ctoks=561
+  13/20  gold=B  pred=B  OK  lat=21.37s  ctoks=813
+  14/20  gold=C  pred=C  OK  lat=35.06s  ctoks=1335
+  15/20  gold=A  pred=A  OK  lat=4.19s  ctoks=145
+  16/20  gold=D  pred=D  OK  lat=18.63s  ctoks=704
+  17/20  gold=A  pred=A  OK  lat=24.85s  ctoks=949
+  18/20  gold=D  pred=D  OK  lat=8.04s  ctoks=295
+  19/20  gold=B  pred=B  OK  lat=20.91s  ctoks=788
+  20/20  gold=C  pred=C  OK  lat=23.34s  ctoks=885
+  -> 20/20 = 100.0%
+
+=== high_school_biology ===
+Generating test split:   0%|          | 0/310 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 310/310 [00:00<00:00, 70503.97 examples/s]
+Generating validation split:   0%|          | 0/32 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 32/32 [00:00<00:00, 16878.49 examples/s]
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 3834.62 examples/s]
+   1/20  gold=C  pred=C  OK  lat=16.67s  ctoks=620
+   2/20  gold=B  pred=B  OK  lat=17.67s  ctoks=662
+   3/20  gold=B  pred=B  OK  lat=31.28s  ctoks=1197
+   4/20  gold=B  pred=B  OK  lat=24.21s  ctoks=915
+   5/20  gold=C  pred=C  OK  lat=29.83s  ctoks=1133
+   6/20  gold=B  pred=B  OK  lat=26.94s  ctoks=1017
+   7/20  gold=A  pred=A  OK  lat=21.07s  ctoks=798
+   8/20  gold=D  pred=?  XX  lat=10.05s  ctoks=367
+   9/20  gold=B  pred=B  OK  lat=13.78s  ctoks=519
+  10/20  gold=C  pred=C  OK  lat=22.21s  ctoks=841
+  11/20  gold=A  pred=A  OK  lat=27.62s  ctoks=1055
+  12/20  gold=B  pred=B  OK  lat=21.49s  ctoks=814
+  13/20  gold=D  pred=D  OK  lat=16.82s  ctoks=633
+  14/20  gold=C  pred=C  OK  lat=21.93s  ctoks=835
+  15/20  gold=D  pred=D  OK  lat=17.03s  ctoks=645
+  16/20  gold=B  pred=B  OK  lat=11.58s  ctoks=425
+  17/20  gold=B  pred=B  OK  lat=19.63s  ctoks=742
+  18/20  gold=D  pred=D  OK  lat=20.35s  ctoks=766
+  19/20  gold=C  pred=C  OK  lat=12.75s  ctoks=467
+  20/20  gold=C  pred=C  OK  lat=18.7s  ctoks=702
+  -> 19/20 = 95.0%
+
+=== high_school_chemistry ===
+Generating test split:   0%|          | 0/203 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 203/203 [00:00<00:00, 80912.64 examples/s]
+Generating validation split:   0%|          | 0/22 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 22/22 [00:00<00:00, 16103.78 examples/s]
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 4715.88 examples/s]
+   1/20  gold=C  pred=C  OK  lat=17.45s  ctoks=638
+   2/20  gold=D  pred=D  OK  lat=23.07s  ctoks=879
+   3/20  gold=B  pred=B  OK  lat=20.53s  ctoks=773
+   4/20  gold=D  pred=D  OK  lat=15.43s  ctoks=579
+   5/20  gold=D  pred=D  OK  lat=22.96s  ctoks=867
+   6/20  gold=D  pred=D  OK  lat=20.4s  ctoks=772
+   7/20  gold=C  pred=C  OK  lat=27.08s  ctoks=1034
+   8/20  gold=B  pred=B  OK  lat=25.75s  ctoks=975
+   9/20  gold=B  pred=B  OK  lat=26.96s  ctoks=1030
+  10/20  gold=D  pred=D  OK  lat=16.95s  ctoks=642
+  11/20  gold=B  pred=C  XX  lat=11.93s  ctoks=443
+  12/20  gold=B  pred=B  OK  lat=7.62s  ctoks=275
+  13/20  gold=D  pred=D  OK  lat=12.06s  ctoks=452
+  14/20  gold=C  pred=C  OK  lat=11.08s  ctoks=414
+  15/20  gold=C  pred=C  OK  lat=36.61s  ctoks=1395
+  16/20  gold=B  pred=B  OK  lat=10.13s  ctoks=377
+  17/20  gold=D  pred=D  OK  lat=38.48s  ctoks=1454
+  18/20  gold=C  pred=C  OK  lat=22.72s  ctoks=861
+  19/20  gold=A  pred=A  OK  lat=27.39s  ctoks=1047
+  20/20  gold=B  pred=B  OK  lat=30.08s  ctoks=1146
+  -> 19/20 = 95.0%
+
+=== high_school_mathematics ===
+Generating test split:   0%|          | 0/270 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 270/270 [00:00<00:00, 71520.91 examples/s]
+Generating validation split:   0%|          | 0/29 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 29/29 [00:00<00:00, 15753.76 examples/s]
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 3819.25 examples/s]
+   1/20  gold=C  pred=C  OK  lat=7.0s  ctoks=244
+   2/20  gold=B  pred=B  OK  lat=18.94s  ctoks=715
+   3/20  gold=B  pred=B  OK  lat=29.94s  ctoks=1140
+   4/20  gold=B  pred=B  OK  lat=16.26s  ctoks=615
+   5/20  gold=C  pred=C  OK  lat=17.33s  ctoks=653
+   6/20  gold=A  pred=A  OK  lat=12.17s  ctoks=456
+   7/20  gold=D  pred=D  OK  lat=29.07s  ctoks=1111
+   8/20  gold=B  pred=B  OK  lat=25.16s  ctoks=955
+   9/20  gold=D  pred=D  OK  lat=22.79s  ctoks=864
+  10/20  gold=D  pred=D  OK  lat=19.3s  ctoks=725
+  11/20  gold=D  pred=D  OK  lat=16.31s  ctoks=613
+  12/20  gold=D  pred=D  OK  lat=30.87s  ctoks=1181
+  13/20  gold=B  pred=B  OK  lat=15.2s  ctoks=570
+  14/20  gold=A  pred=A  OK  lat=26.43s  ctoks=1004
+  15/20  gold=A  pred=A  OK  lat=44.97s  ctoks=1721
+  16/20  gold=C  pred=C  OK  lat=17.97s  ctoks=682
+  17/20  gold=A  pred=A  OK  lat=17.87s  ctoks=674
+  18/20  gold=A  pred=A  OK  lat=28.04s  ctoks=1063
+  19/20  gold=A  pred=A  OK  lat=20.68s  ctoks=783
+  20/20  gold=C  pred=C  OK  lat=14.83s  ctoks=556
+  -> 20/20 = 100.0%
+
+=== logical_fallacies ===
+Generating test split:   0%|          | 0/163 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 163/163 [00:00<00:00, 37385.66 examples/s]
+Generating validation split:   0%|          | 0/18 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 18/18 [00:00<00:00, 8369.08 examples/s]
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2141.26 examples/s]
+   1/20  gold=B  pred=B  OK  lat=22.73s  ctoks=850
+   2/20  gold=A  pred=A  OK  lat=5.75s  ctoks=206
+   3/20  gold=A  pred=A  OK  lat=11.76s  ctoks=440
+   4/20  gold=B  pred=B  OK  lat=15.47s  ctoks=584
+   5/20  gold=C  pred=C  OK  lat=10.88s  ctoks=406
+   6/20  gold=C  pred=C  OK  lat=14.1s  ctoks=527
+   7/20  gold=C  pred=C  OK  lat=11.82s  ctoks=443
+   8/20  gold=C  pred=C  OK  lat=13.73s  ctoks=517
+   9/20  gold=D  pred=D  OK  lat=22.4s  ctoks=853
+  10/20  gold=B  pred=B  OK  lat=20.6s  ctoks=778
+  11/20  gold=A  pred=A  OK  lat=18.95s  ctoks=719
+  12/20  gold=D  pred=D  OK  lat=6.07s  ctoks=218
+  13/20  gold=C  pred=C  OK  lat=19.63s  ctoks=746
+  14/20  gold=D  pred=D  OK  lat=7.24s  ctoks=260
+  15/20  gold=A  pred=A  OK  lat=18.1s  ctoks=687
+  16/20  gold=A  pred=A  OK  lat=17.25s  ctoks=654
+  17/20  gold=B  pred=B  OK  lat=19.31s  ctoks=733
+  18/20  gold=B  pred=B  OK  lat=20.96s  ctoks=797
+  19/20  gold=B  pred=?  XX  lat=12.02s  ctoks=451
+  20/20  gold=B  pred=B  OK  lat=18.76s  ctoks=700
+  -> 19/20 = 95.0%
+
+=== world_religions ===
+Generating test split:   0%|          | 0/171 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 171/171 [00:00<00:00, 43268.94 examples/s]
+Generating validation split:   0%|          | 0/19 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 19/19 [00:00<00:00, 9429.86 examples/s]
+Generating dev split:   0%|          | 0/5 [00:00<?, ? examples/s]Generating dev split: 100%|██████████| 5/5 [00:00<00:00, 2263.52 examples/s]
+   1/20  gold=D  pred=D  OK  lat=20.75s  ctoks=778
+   2/20  gold=A  pred=A  OK  lat=17.92s  ctoks=680
+   3/20  gold=A  pred=A  OK  lat=14.79s  ctoks=558
+   4/20  gold=A  pred=A  OK  lat=13.99s  ctoks=527
+   5/20  gold=C  pred=C  OK  lat=24.22s  ctoks=923
+   6/20  gold=A  pred=A  OK  lat=13.47s  ctoks=507
+   7/20  gold=B  pred=B  OK  lat=19.1s  ctoks=726
+   8/20  gold=A  pred=A  OK  lat=29.8s  ctoks=1140
+   9/20  gold=C  pred=C  OK  lat=12.93s  ctoks=486
+  10/20  gold=A  pred=A  OK  lat=19.76s  ctoks=751
+  11/20  gold=B  pred=B  OK  lat=16.41s  ctoks=621
+  12/20  gold=B  pred=B  OK  lat=20.2s  ctoks=768
+  13/20  gold=A  pred=A  OK  lat=13.7s  ctoks=516
+  14/20  gold=D  pred=D  OK  lat=18.31s  ctoks=695
+  15/20  gold=A  pred=?  XX  lat=7.05s  ctoks=254
+  16/20  gold=A  pred=A  OK  lat=16.86s  ctoks=639
+  17/20  gold=A  pred=A  OK  lat=10.9s  ctoks=407
+  18/20  gold=C  pred=C  OK  lat=14.66s  ctoks=553
+  19/20  gold=B  pred=B  OK  lat=16.44s  ctoks=622
+  20/20  gold=B  pred=B  OK  lat=13.4s  ctoks=504
+  -> 19/20 = 95.0%
+
+Overall: 188/200 = 94.0%
+Written: /Volumes/Chronara-Storage/Projects/test models/Testing-Models/models/thetom-ai--MiniMax-M2.7-ConfigI-MLX/results/apple-silicon/mmlu_20260416T175847Z.json
+=== PHASE A_mmlu COMPLETE in 4045s ===
+
+=== PHASE B_niah starting (19:06:12Z) ===
+[meta] run_id=20260416T190612Z
+
+=== context=1400  depth=10% ===
+  PASS  lat=9.76s  ptoks=1020  ctoks=248
+  content: 
+
+The secret code is BLUE-JAGUAR-1729.
+
+=== context=1400  depth=50% ===
+  PASS  lat=8.71s  ptoks=1020  ctoks=207
+  content: 
+
+BLUE-JAGUAR-1729
+
+=== context=1400  depth=90% ===
+  PASS  lat=9.57s  ptoks=1020  ctoks=241
+  content: 
+
+The secret code is hidden within the repetitive text. After careful review, I found this explicit statement embedded in the document:
+
+"The secret code for the Chronara Labs Mark IV project is BLUE-
+
+=== context=2400  depth=10% ===
+  PASS  lat=11.39s  ptoks=1697  ctoks=231
+  content: 
+
+BLUE-JAGUAR-1729
+
+=== context=2400  depth=50% ===
+  PASS  lat=11.0s  ptoks=1697  ctoks=216
+  content: 
+
+BLUE-JAGUAR-1729
+
+=== context=2400  depth=90% ===
+  PASS  lat=13.47s  ptoks=1697  ctoks=311
+  content: 
+
+## Solution
+
+After carefully analyzing the document, I found the secret code embedded within the text.
+
+The document primarily consists of repetitive text about monarch butterfly migrations. However
+
+=== context=4400  depth=10% ===
+  PASS  lat=19.69s  ptoks=3052  ctoks=384
+  content: 
+
+BLUE-JAGUAR-1729
+
+=== context=4400  depth=50% ===
+  PASS  lat=17.74s  ptoks=3052  ctoks=310
+  content: 
+
+BLUE-JAGUAR-1729
+
+=== context=4400  depth=90% ===
+  PASS  lat=15.79s  ptoks=3052  ctoks=236
+  content: 
+
+BLUE-JAGUAR-1729
+
+=== context=8300  depth=10% ===
+  PASS  lat=24.12s  ptoks=5694  ctoks=236
+  content: 
+
+BLUE-JAGUAR-1729
+
+=== context=8300  depth=50% ===
+  PASS  lat=23.73s  ptoks=5694  ctoks=222
+  content: 
+
+BLUE-JAGUAR-1729
+
+=== context=8300  depth=90% ===
+  PASS  lat=35.92s  ptoks=5694  ctoks=669
+  content: 
+
+**Step 1: Analyze the document structure**
+
+The document is composed primarily of repetitive text about monarch butterfly migrations, with the same paragraph repeated dozens of times.
+
+**Step 2: Sea
+
+Overall: 12/12
+Written: /Volumes/Chronara-Storage/Projects/test models/Testing-Models/models/thetom-ai--MiniMax-M2.7-ConfigI-MLX/results/apple-silicon/niah_20260416T175847Z.json
+=== PHASE B_niah COMPLETE in 201s ===
+
+=== PHASE C_speed starting (19:09:33Z) ===
+[meta] run_id=20260416T190933Z
+
+=== context=128 tokens ===
+  trial 1: decode=32.18 tok/s  wall=3.977s  prompt_tokens=108  completion_tokens=128
+  trial 2: decode=37.02 tok/s  wall=3.43s  prompt_tokens=108  completion_tokens=127
+  trial 3: decode=37.44 tok/s  wall=3.419s  prompt_tokens=108  completion_tokens=128
+  -> median decode 37.02 tok/s
+
+=== context=256 tokens ===
+  trial 1: decode=30.6 tok/s  wall=4.184s  prompt_tokens=196  completion_tokens=128
+  trial 2: decode=37.32 tok/s  wall=3.43s  prompt_tokens=196  completion_tokens=128
+  trial 3: decode=37.38 tok/s  wall=3.424s  prompt_tokens=196  completion_tokens=128
+  -> median decode 37.32 tok/s
+
+=== context=512 tokens ===
+  trial 1: decode=27.16 tok/s  wall=4.677s  prompt_tokens=370  completion_tokens=127
+  trial 2: decode=37.2 tok/s  wall=3.441s  prompt_tokens=370  completion_tokens=128
+  trial 3: decode=36.93 tok/s  wall=3.439s  prompt_tokens=370  completion_tokens=127
+  -> median decode 36.93 tok/s
+
+=== context=1024 tokens ===
+  trial 1: decode=22.3 tok/s  wall=5.741s  prompt_tokens=719  completion_tokens=128
+  trial 2: decode=37.0 tok/s  wall=3.46s  prompt_tokens=719  completion_tokens=128
+  trial 3: decode=36.67 tok/s  wall=3.463s  prompt_tokens=719  completion_tokens=127
+  -> median decode 36.67 tok/s
+
+=== context=2048 tokens ===
+  trial 1: decode=16.16 tok/s  wall=7.859s  prompt_tokens=1418  completion_tokens=127
+  trial 2: decode=36.71 tok/s  wall=3.487s  prompt_tokens=1418  completion_tokens=128
+  trial 3: decode=36.8 tok/s  wall=3.478s  prompt_tokens=1418  completion_tokens=128
+  -> median decode 36.71 tok/s
+
+=== context=4096 tokens ===
+  trial 1: decode=10.57 tok/s  wall=12.105s  prompt_tokens=2818  completion_tokens=128
+  trial 2: decode=36.27 tok/s  wall=3.529s  prompt_tokens=2818  completion_tokens=128
+  trial 3: decode=36.32 tok/s  wall=3.524s  prompt_tokens=2818  completion_tokens=128
+  -> median decode 36.27 tok/s
+
+=== context=8192 tokens ===
+  trial 1: decode=6.12 tok/s  wall=20.905s  prompt_tokens=5614  completion_tokens=128
+  trial 2: decode=35.06 tok/s  wall=3.651s  prompt_tokens=5614  completion_tokens=128
+  trial 3: decode=34.86 tok/s  wall=3.643s  prompt_tokens=5614  completion_tokens=127
+  -> median decode 34.86 tok/s
+
+Written: /Volumes/Chronara-Storage/Projects/test models/Testing-Models/models/thetom-ai--MiniMax-M2.7-ConfigI-MLX/results/apple-silicon/speed_20260416T175847Z.json
+=== PHASE C_speed COMPLETE in 108s ===
+
+Stopping mlx_lm.server for MiniMax before PPL (D) ...
+
+=== PHASE D_ppl starting (19:11:27Z) ===
+[meta] run_id=20260416T191132Z
+Loading model from /Volumes/Chronara-Storage/Projects/test models/models/MiniMax-M2.7-ConfigI-MLX ...
+Model loaded in 101.0s
+Loading dataset wikitext/wikitext-2-raw-v1[test] ...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Generating test split:   0%|          | 0/4358 [00:00<?, ? examples/s]Generating test split: 100%|██████████| 4358/4358 [00:00<00:00, 1208194.65 examples/s]
+Generating train split:   0%|          | 0/36718 [00:00<?, ? examples/s]Generating train split: 100%|██████████| 36718/36718 [00:00<00:00, 3803004.11 examples/s]
+Generating validation split:   0%|          | 0/3760 [00:00<?, ? examples/s]Generating validation split: 100%|██████████| 3760/3760 [00:00<00:00, 2629306.94 examples/s]
+Tokenising corpus ...
+  282851 tokens
+
+-- Card methodology: 2048 seq len, 50 samples --
+  card: 50 chunks of 2048 tokens (from 138 available)
+Traceback (most recent call last):
+  File "/Volumes/Chronara-Storage/Projects/test models/Testing-Models/scripts/eval_perplexity.py", line 140, in <module>
+    main()
+  File "/Volumes/Chronara-Storage/Projects/test models/Testing-Models/scripts/eval_perplexity.py", line 116, in main
+    card = measure(model, tokenizer, ids, seq_len=2048, max_chunks=50,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Chronara-Storage/Projects/test models/Testing-Models/scripts/eval_perplexity.py", line 65, in measure
+    nll, n = nll_over_tokens(model, mx.array(ch))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Volumes/Chronara-Storage/Projects/test models/Testing-Models/scripts/eval_perplexity.py", line 31, in nll_over_tokens
+    log_probs = mx.log_softmax(shift_logits, axis=-1)
+                ^^^^^^^^^^^^^^
+AttributeError: module 'mlx.core' has no attribute 'log_softmax'
+=== PHASE D_ppl FAILED ===
+
+=== run_all finished at 20260416T191329Z ===
+results in /Volumes/Chronara-Storage/Projects/test models/Testing-Models/models/thetom-ai--MiniMax-M2.7-ConfigI-MLX/results/apple-silicon
+full log: /Volumes/Chronara-Storage/Projects/test models/Testing-Models/models/thetom-ai--MiniMax-M2.7-ConfigI-MLX/results/_logs/run_all_20260416T175847Z.log

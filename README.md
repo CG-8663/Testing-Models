@@ -2,7 +2,6 @@
 
 Independent benchmarking of open-weight LLMs across three compute backends — **Apple Silicon (MLX)**, **NVIDIA (CUDA)**, and **AMD (ROCm)**. Every model gets the same benchmark suite, the same metrics, and a full, reproducible log on each platform — so we can see not just how good a model is, but how well it *runs* on the hardware you actually have.
 
-> **🚧 Work in progress — Apple Silicon stage delayed.** The `MiniMax-M2.7-ConfigI-MLX` run (Phases A–D, see [its BENCHMARK_LOG](models/thetom-ai--MiniMax-M2.7-ConfigI-MLX/BENCHMARK_LOG.md)) hit an OOM on an earlier attempt because the 92 GB Metal wired limit had reset after reboot. The full protocol-pinned suite is being re-run **overnight 2026-04-16 → 2026-04-17** when the M3 Ultra has exclusive use of unified memory. Measured numbers for this stage will land in the morning; until then the table below shows `⏳ running overnight`.
 
 ## Why this repo exists
 
@@ -117,7 +116,7 @@ Testing-Models/
 
 | Model | Quant | Size | Apple | NVIDIA | AMD |
 |---|---|---|---|---|---|
-| [`thetom-ai/MiniMax-M2.7-ConfigI-MLX`](models/thetom-ai--MiniMax-M2.7-ConfigI-MLX) | TurboQuant+ Config-I (2-bit experts / 4-bit attn / FP boundary) | 87 GB | ⏳ running overnight 2026-04-16 | N/A — MLX-only | N/A — MLX-only |
+| [`thetom-ai/MiniMax-M2.7-ConfigI-MLX`](models/thetom-ai--MiniMax-M2.7-ConfigI-MLX) | TurboQuant+ Config-I (2-bit experts / 4-bit attn / FP boundary) | 87 GB | **94% MMLU**, 37 tok/s @ 128 ctx | N/A — MLX-only | N/A — MLX-only |
 
 Quantised artefacts are backend-specific by format: MLX safetensors don't load on CUDA/ROCm, and AWQ/GPTQ don't load on MLX. A different quant of the same base model is tracked as a separate entry in this table.
 

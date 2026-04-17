@@ -1,0 +1,31 @@
+[meta] run_id=20260417T033810Z
+Loading model from /Volumes/Chronara-Storage/Projects/test models/models/MiniMax-M2.7-ConfigI-MLX ...
+Model loaded in 98.3s
+Loading dataset wikitext/wikitext-2-raw-v1[test] ...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Tokenising corpus ...
+  282851 tokens
+
+-- Card methodology: 2048 seq len, 50 samples --
+  card: 50 chunks of 2048 tokens (from 138 available)
+    chunk 5/50  running PPL = 10.2823
+    chunk 10/50  running PPL = 8.9029
+    chunk 15/50  running PPL = 9.3263
+    chunk 20/50  running PPL = 9.5660
+    chunk 25/50  running PPL = 9.8081
+    chunk 30/50  running PPL = 9.9916
+    chunk 35/50  running PPL = 9.4950
+    chunk 40/50  running PPL = 9.0677
+    chunk 45/50  running PPL = 9.6064
+    chunk 50/50  running PPL = 9.6646
+
+-- TBQ+ methodology: 512 seq len, 20 chunks --
+  tbqplus: 20 chunks of 512 tokens (from 552 available)
+    chunk 5/20  running PPL = 11.5687
+    chunk 10/20  running PPL = 14.5855
+    chunk 15/20  running PPL = 14.6221
+    chunk 20/20  running PPL = 13.6855
+
+Card PPL (2048x50):   9.6646
+TBQ+ PPL (512x20):    13.6855
+Written: /Volumes/Chronara-Storage/Projects/test models/Testing-Models/models/thetom-ai--MiniMax-M2.7-ConfigI-MLX/results/apple-silicon/ppl_20260417T033806Z.json

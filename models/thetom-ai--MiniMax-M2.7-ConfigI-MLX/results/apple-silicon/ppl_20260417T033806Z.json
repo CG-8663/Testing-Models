@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "run_id": "20260417T033810Z",
+    "timestamp_utc": "2026-04-17T03:38:10.813859+00:00",
+    "python": "3.12.13",
+    "packages": {
+      "mlx": "0.31.1",
+      "mlx-lm": "0.31.2",
+      "lighteval": "0.13.0",
+      "datasets": "4.8.3",
+      "transformers": "5.5.4",
+      "requests": "2.33.1",
+      "numpy": "2.4.4"
+    },
+    "hardware": {
+      "platform": "macOS-26.4.1-arm64-arm-64bit",
+      "machine": "arm64",
+      "system": "Darwin",
+      "chip": "Apple M3 Ultra",
+      "memsize_bytes": 103079215104,
+      "iogpu_wired_limit_mb": 94208
+    },
+    "model": {
+      "model_dir": "/Volumes/Chronara-Storage/Projects/test models/models/MiniMax-M2.7-ConfigI-MLX",
+      "config_json_sha256": "dda733979a2476779bd78552d5f020f2c4b2e5a645eb4b071175086e90935312",
+      "tokenizer_json_sha256": "7b81e5e5cba2b169e86a0771825a927e9d41b4c4484ded4a286410f41f702f17",
+      "index_sha256": "290d6d299de5415e8691decaa07c5f79b7742c647db10b9048bc39c21465a787",
+      "shard_count": 18
+    },
+    "script": "eval_perplexity.py",
+    "runtime": "mlx_lm.load in-process"
+  },
+  "model_path": "/Volumes/Chronara-Storage/Projects/test models/models/MiniMax-M2.7-ConfigI-MLX",
+  "dataset": "wikitext",
+  "config": "wikitext-2-raw-v1",
+  "split": "test",
+  "results": {
+    "card_2048_50samples": {
+      "seq_len": 2048,
+      "chunks": 50,
+      "tokens_scored": 102350,
+      "ppl": 9.6646,
+      "elapsed_s": 11927.8
+    },
+    "tbqplus_512_20chunks": {
+      "seq_len": 512,
+      "chunks": 20,
+      "tokens_scored": 10220,
+      "ppl": 13.6855,
+      "elapsed_s": 4916.0
+    }
+  }
+}

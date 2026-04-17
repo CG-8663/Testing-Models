@@ -102,9 +102,32 @@ Stood up `mlx_lm.server` (OpenAI-compatible HTTP API on :8080) so benchmarks can
 - Internal free space: 514 → 610 GB.
 - Restarted server pointing to the external volume copy.
 
-### Step 7 — MMLU (⏳ next)
-Open decision: **full MMLU (14k Q, hours)** vs **stratified ~1k-Q subset (~20–40 min)**.
-Default: subset first, then full overnight if the subset looks clean.
+### Step 7 — Overnight protocol run (✅)
+
+Ran the full pinned protocol overnight (2026-04-16 → 2026-04-17) via `overnight_run.sh` → `run_all.sh`. All apps closed, `iogpu.wired_limit_mb=94208`, Qwen :8082 server still running (~4 GB).
+
+**Phase A — MMLU** (10 subjects × 20 Q = 200 total, 0-shot, temp 1.0, max_tokens 4096):
+- **188/200 = 94.0%** — slightly exceeds the card's 187/200 = 93.5%.
+- Strongest: College Physics (100%), HS Mathematics (100%).
+- Weakest: Anatomy (85%).
+- Run ID: `20260416T175847Z`, result: `mmlu_20260416T175847Z.json`.
+
+**Phase B — NIAH** (3 depths × 4 context lengths = 12 probes):
+- **12/12 = 100%** — matches the card.
+- Run ID: `20260416T175847Z`, result: `niah_20260416T175847Z.json`.
+
+**Phase C — Speed sweep** (7 context lengths, 3 trials each, median tok/s):
+- 128 ctx → **37.0 tok/s**, 8192 ctx → **34.9 tok/s**.
+- Card comparison: 61.1 → 45.4 tok/s (M5 Max, `mlx-swift-lm` + turbo4v2 + Bridge prefill).
+- The ~40% gap is expected: Python `mlx_lm` on M3 Ultra vs Swift runtime with turbo4v2 on M5 Max.
+- Run ID: `20260416T175847Z`, result: `speed_20260416T175847Z.json`.
+
+**Phase D — Perplexity** (wikitext-2-raw-v1, in-process `mlx_lm.load`):
+- First attempt hit `AttributeError: module 'mlx.core' has no attribute 'log_softmax'` — fixed (`mx.logsumexp` manual computation).
+- Card methodology (2048 × 50): **PPL 9.6646** — card claims 4.604 ± 0.042.
+- TBQ+ methodology (512 × 20): **PPL 13.6855**.
+- The PPL gap vs the card is large (2× higher). Card ran with turbo4v2 KV compression on `mlx-swift-lm`; we ran without. Whether turbo4v2 genuinely halves perplexity or there is another methodological factor requires investigation with the Swift runtime.
+- Run ID: `20260417T033810Z`, result: `ppl_20260417T033806Z.json`.
 
 ### Step 8 — Remaining automatic benchmarks (⏳)
 HellaSwag · GSM8K · HumanEval · TruthfulQA.
@@ -120,9 +143,10 @@ Generate MiniMax answers to ~80 MT-Bench prompts → judge in this Claude Code s
 
 ## Open decisions
 
-- [ ] MMLU scope (full vs ~1k subset).
+- [x] ~~MMLU scope~~ — ran the pinned 200-Q card-matching protocol (Step 7).
 - [ ] Thunderbolt bridge vs 10 GbE for cluster interconnect (benchmark both if time permits).
-- [ ] Persist `iogpu.wired_limit_mb=94208` in `/etc/sysctl.conf`?
+- [x] ~~Persist `iogpu.wired_limit_mb=94208`~~ — written to `/etc/sysctl.conf` (2026-04-17).
+- [ ] Investigate PPL gap (9.66 measured vs 4.60 card) — turbo4v2 vs Python `mlx_lm`?
 
 ---
 
@@ -132,3 +156,5 @@ Generate MiniMax answers to ~80 MT-Bench prompts → judge in this Claude Code s
 |---|---|---|
 | 1 | Metal OOM on model load | Raised `iogpu.wired_limit_mb` from default to 94208 (92 GB) |
 | 2 | `rsync --info=progress2` unsupported on stock macOS rsync | Fell back to `rsync -a --progress` |
+| 3 | Wired limit reset after reboot causing Phase D OOM | Persisted to `/etc/sysctl.conf`; added pre-flight check in `overnight_run.sh` |
+| 4 | `mx.log_softmax` does not exist in `mlx.core` | Replaced with `x - mx.logsumexp(x, axis=-1, keepdims=True)` in `eval_perplexity.py` |

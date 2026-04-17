@@ -1,0 +1,25 @@
+run_all starting at 20260416T082039Z
+model_slug=thetom-ai--MiniMax-M2.7-ConfigI-MLX
+served_id=/Volumes/Chronara-Storage/Projects/test models/models/MiniMax-M2.7-ConfigI-MLX
+model_dir=/Volumes/Chronara-Storage/Projects/test models/models/MiniMax-M2.7-ConfigI-MLX
+results_dir=/Volumes/Chronara-Storage/Projects/test models/Testing-Models/models/thetom-ai--MiniMax-M2.7-ConfigI-MLX/results/apple-silicon
+
+=== PHASE A_mmlu starting (08:20:39Z) ===
+[meta] run_id=20260416T082041Z
+
+=== abstract_algebra ===
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+   1/20  gold=A  pred=A  OK  lat=88.2s  ctoks=2032
+   2/20  gold=A  pred=A  OK  lat=15.86s  ctoks=600
+   3/20  gold=D  pred=A  XX  lat=52.05s  ctoks=1796
+   4/20  gold=D  pred=D  OK  lat=9.65s  ctoks=293
+   5/20  gold=C  pred=C  OK  lat=52.42s  ctoks=1568
+   6/20  gold=B  pred=B  OK  lat=57.55s  ctoks=1117
+   7/20  gold=D  pred=D  OK  lat=31.18s  ctoks=524
+   8/20  gold=B  pred=B  OK  lat=315.34s  ctoks=1817
+   9/20  gold=B  pred=B  OK  lat=412.22s  ctoks=1445
+  10/20  gold=C  pred=C  OK  lat=232.56s  ctoks=395
+  11/20  gold=D  pred=D  OK  lat=259.51s  ctoks=1757
+  12/20  gold=C  pred=C  OK  lat=462.45s  ctoks=856
+  13/20  gold=B  pred=?  XX  lat=Nones  ctoks=None
+  14/20  gold=A  pred=?  XX  lat=Nones  ctoks=None

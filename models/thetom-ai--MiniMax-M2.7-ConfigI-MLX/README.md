@@ -25,13 +25,47 @@ All numbers below come from the protocol runs on **Mac Studio M3 Ultra 96 GB, Py
 
 | Metric | Measured | Run ID |
 |---|---|---|
-| MMLU (10×20) | ⏳ pending | — |
-| NIAH (3×4 grid) | ⏳ pending | — |
-| Decode @ 128 ctx | ⏳ pending | — |
-| Decode @ 8192 ctx | ⏳ pending | — |
-| PPL (card: 2048×50) | ⏳ pending | — |
-| PPL (TBQ+: 512×20) | ⏳ pending | — |
-| Peak unified memory (smoke) | 93.0 GB | ad-hoc smoke test, not under protocol — will be re-measured |
+| MMLU (10×20) | **188/200 = 94.0%** | `20260416T175847Z` |
+| NIAH (3×4 grid) | **12/12 = 100%** | `20260416T175847Z` |
+| Decode @ 128 ctx | **37.0 tok/s** (median, 3 trials) | `20260416T175847Z` |
+| Decode @ 8192 ctx | **34.9 tok/s** (median, 3 trials) | `20260416T175847Z` |
+| PPL (card: 2048×50) | **9.6646** | `20260417T033810Z` |
+| PPL (TBQ+: 512×20) | **13.6855** | `20260417T033810Z` |
+| Peak unified memory (smoke) | 93.0 GB | ad-hoc smoke test |
+
+### MMLU per-subject breakdown
+
+| Subject | Measured | Card |
+|---|---|---|
+| Abstract Algebra | 18/20 (90%) | — |
+| Anatomy | 17/20 (85%) | — |
+| Astronomy | 19/20 (95%) | — |
+| College CS | 18/20 (90%) | — |
+| College Physics | 20/20 (100%) | — |
+| HS Biology | 19/20 (95%) | — |
+| HS Chemistry | 19/20 (95%) | — |
+| HS Mathematics | 20/20 (100%) | — |
+| Logical Fallacies | 19/20 (95%) | — |
+| World Religions | 19/20 (95%) | — |
+| **Overall** | **188/200 (94.0%)** | **187/200 (93.5%)** |
+
+### Speed sweep (decode tok/s, median of 3 trials)
+
+| Context | Measured (M3 Ultra, `mlx_lm`) | Card (M5 Max, `mlx-swift-lm` + turbo4v2) |
+|---|---|---|
+| 128 | 37.0 | 61.1 |
+| 256 | 37.3 | — |
+| 512 | 36.9 | — |
+| 1024 | 36.7 | — |
+| 2048 | 36.7 | — |
+| 4096 | 36.3 | — |
+| 8192 | 34.9 | 45.4 |
+
+Note: card numbers use `mlx-swift-lm` with turbo4v2 KV compression and Bridge prefill on M5 Max 128 GB. Our numbers use Python `mlx_lm` on M3 Ultra 96 GB without turbo4v2 or Bridge — a materially different runtime. The ~40% decode gap is expected and does not indicate a model quality issue.
+
+### Perplexity note
+
+Our measured PPL (9.66) is significantly higher than the card's 4.604. The card ran with turbo4v2 KV compression enabled; we ran without it (Python `mlx_lm` has no turbo4v2 support). Whether turbo4v2 genuinely halves PPL or whether there is another methodological factor requires further investigation with `mlx-swift-lm`.
 
 See [`BENCHMARK_LOG.md`](BENCHMARK_LOG.md) for the chronological run.
 

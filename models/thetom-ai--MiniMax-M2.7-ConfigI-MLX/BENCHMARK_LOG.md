@@ -146,7 +146,7 @@ Generate MiniMax answers to ~80 MT-Bench prompts → judge in this Claude Code s
 - [x] ~~MMLU scope~~ — ran the pinned 200-Q card-matching protocol (Step 7).
 - [ ] Thunderbolt bridge vs 10 GbE for cluster interconnect (benchmark both if time permits).
 - [x] ~~Persist `iogpu.wired_limit_mb=94208`~~ — written to `/etc/sysctl.conf` (2026-04-17).
-- [ ] Investigate PPL gap (9.66 measured vs 4.60 card) — turbo4v2 vs Python `mlx_lm`?
+- [x] ~~Investigate PPL gap (9.66 vs 4.60)~~ — ruled out code bugs, routing, FP8 dequant; gap is cross-runtime (Swift vs Python) and/or methodology. Closing requires `mlx-swift-lm` + turbo4v2.
 
 ---
 

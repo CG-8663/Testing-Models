@@ -63,9 +63,23 @@ All numbers below come from the protocol runs on **Mac Studio M3 Ultra 96 GB, Py
 
 Note: card numbers use `mlx-swift-lm` with turbo4v2 KV compression and Bridge prefill on M5 Max 128 GB. Our numbers use Python `mlx_lm` on M3 Ultra 96 GB without turbo4v2 or Bridge — a materially different runtime. The ~40% decode gap is expected and does not indicate a model quality issue.
 
-### Perplexity note
+### Perplexity gap investigation
 
-Our measured PPL (9.66) is significantly higher than the card's 4.604. The card ran with turbo4v2 KV compression enabled; we ran without it (Python `mlx_lm` has no turbo4v2 support). Whether turbo4v2 genuinely halves PPL or whether there is another methodological factor requires further investigation with `mlx-swift-lm`.
+Our measured PPL (9.66) is 2× the card's 4.604. We investigated the following and ruled them out as causes:
+
+- **Our NLL computation** — verified identical output to `mlx.nn.losses.cross_entropy` on the same data.
+- **MoE expert routing** — `mx.argpartition` returns the correct top-8 of 256 experts (verified empirically).
+- **FP8 dequantization** — not applicable; weights are native MLX quantized (2/3/4/8-bit affine, group_size=64). No `scale_inv` entries exist.
+- **Attention implementation** — GQA (48 heads / 8 KV), QK norm, and RoPE are standard and match the config.
+- **Model quality** — MMLU 94.0% matches the card's 93.5%, confirming the model produces correct outputs.
+
+The gap is most likely **cross-runtime and/or methodological**:
+
+1. The card used `mlx-swift-lm` (ek/tom-eric-moe-tuning branch) with turbo4v2 KV compression. We used Python `mlx_lm` 0.31.2. These are different inference implementations of the same weights.
+2. The card's PPL methodology is underspecified: "wikitext, 50 samples, 2048 seq length" — no disclosure of dataset split, stride strategy, chunk selection method, preprocessing, or loss averaging. Any of these could shift PPL.
+3. The card claims turbo4v2 incurs "no additional quality penalty" — but this is unverified. KV cache compression could interact with the 2/3-bit expert quantisation in ways that affect log-likelihood scoring even if generation quality (MMLU) is preserved.
+
+**Closing this gap requires `mlx-swift-lm` with turbo4v2**, which is Swift-only and not available in the Python `mlx_lm` pipeline. PPL 9.66 is our honest measured number on this runtime and is recorded as such.
 
 See [`BENCHMARK_LOG.md`](BENCHMARK_LOG.md) for the chronological run.
 

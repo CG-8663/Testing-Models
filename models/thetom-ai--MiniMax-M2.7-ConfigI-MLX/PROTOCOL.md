@@ -112,6 +112,51 @@ The top-level summary for each phase is copied into `BENCHMARK_LOG.md` and the p
 
 ---
 
+## Phase E — Supplementary benchmarks (Step 8)
+
+These benchmarks are NOT in the model card's claims — they are supplementary measurements to characterise the model more broadly. All use the same reasoning-model settings as Phases A–C.
+
+### E.1 — HellaSwag (200 questions)
+
+| Parameter | Value |
+|---|---|
+| Dataset | `Rowan/hellaswag` validation split |
+| Questions | 200 (seed 42 shuffle) |
+| Format | 0-shot multiple-choice (A/B/C/D) |
+| Temperature | 1.0 |
+| `max_tokens` | 4096 |
+| Runtime | `mlx_lm.server` via HTTP |
+
+Runner: [`scripts/eval_hellaswag.py`](../../scripts/eval_hellaswag.py).
+
+### E.2 — GSM8K (200 questions)
+
+| Parameter | Value |
+|---|---|
+| Dataset | `openai/gsm8k` test split |
+| Questions | 200 (seed 42 shuffle) |
+| Format | 0-shot generation, extract final number from `message.content` |
+| Temperature | 1.0 |
+| `max_tokens` | 4096 |
+| Runtime | `mlx_lm.server` via HTTP |
+
+Runner: [`scripts/eval_gsm8k.py`](../../scripts/eval_gsm8k.py).
+
+### E.3 — TruthfulQA MC1 (200 questions)
+
+| Parameter | Value |
+|---|---|
+| Dataset | `truthful_qa` multiple_choice, validation split |
+| Questions | 200 (seed 42 shuffle) |
+| Format | 0-shot multiple-choice (variable number of choices, MC1 single-correct) |
+| Temperature | 1.0 |
+| `max_tokens` | 4096 |
+| Runtime | `mlx_lm.server` via HTTP |
+
+Runner: [`scripts/eval_truthfulqa.py`](../../scripts/eval_truthfulqa.py).
+
+---
+
 ## What this protocol does NOT yet test
 
 - `mlx-swift-lm` Bridge prefill and turbo4v2 KV compression — requires a Swift toolchain build of `ekryski/mlx-swift-lm` on branch `ek/tom-eric-moe-tuning`. Planned as a follow-up stage; would close the gap to the card's 61 tok/s and extend NIAH past 8.3K.

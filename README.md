@@ -13,17 +13,19 @@ Our evaluation framework is based on Hugging Face's [OpenEvals evaluation guideb
 
 ### 1. Automatic benchmarks
 
-Task-specific datasets scored against known-correct answers. Run via [`lighteval`](https://github.com/huggingface/lighteval) against an `mlx_lm.server` OpenAI-compatible endpoint. Standard suite:
+Task-specific datasets scored against known-correct answers. Run via custom Python scripts against the `mlx_lm.server` OpenAI-compatible endpoint (`/v1/chat/completions`). All benchmarks use **0-shot** with reasoning enabled and `max_tokens=4096` to give reasoning models room for chain-of-thought before the final answer.
 
-| Benchmark | Tests | Shots |
-|---|---|---|
-| **MMLU** | General knowledge across 57 subjects | 5 |
-| **HellaSwag** | Commonsense reasoning | 10 |
-| **GSM8K** | Grade-school maths (chain-of-thought) | 5 |
-| **HumanEval** | Python code generation | 0 |
-| **TruthfulQA** | Resistance to common misconceptions | 0 |
+| Benchmark | Tests | Script | Scoring |
+|---|---|---|---|
+| **MMLU** | General knowledge (10 subjects × 20 Q) | `eval_mmlu.py` | Multiple-choice A/B/C/D extraction |
+| **HellaSwag** | Commonsense reasoning (200 Q) | `eval_hellaswag.py` | Multiple-choice A/B/C/D extraction |
+| **GSM8K** | Grade-school maths (200 Q) | `eval_gsm8k.py` | Final numeric answer extraction |
+| **TruthfulQA** | Resistance to misconceptions (200 Q, MC1) | `eval_truthfulqa.py` | Multiple-choice extraction |
+| **NIAH** | Needle-in-a-haystack retrieval (12 probes) | `eval_niah.py` | Factual recall pass/fail |
+| **Perplexity** | Next-token prediction (wikitext-2) | `eval_perplexity.py` | NLL / exp(mean loss) |
+| **Speed sweep** | Decode throughput at 7 context lengths | `speed_sweep.py` | Median tok/s over 3 trials |
 
-For reasoning models (e.g. MiniMax-M2), we allow high `max_tokens` (≥2048) so the chain-of-thought channel has room to finish before the final answer.
+Scripts handle both reasoning patterns: MiniMax-M2 (separate `message.reasoning` field) and Qwen-style (`<think>...</think>` tags inline in content). Answer extraction strips thinking tokens before scoring.
 
 ### 2. LLM-as-judge
 
@@ -159,14 +161,16 @@ For the fine-tuning use case (remittance processing + planning automation), Qwen
 
 ```sh
 python3.12 -m venv .venv && source .venv/bin/activate
-pip install 'lighteval[math]' mlx-lm
-hf download <org>/<model> --local-dir ./weights/<model>
+pip install mlx-lm datasets requests
+huggingface-cli download <org>/<model> --local-dir ./weights/<model>
 sudo sysctl iogpu.wired_limit_mb=94208   # if model >70 GB on 96 GB machine
 mlx_lm.server --model ./weights/<model> --host 127.0.0.1 --port 8080 &
-lighteval endpoint litellm \
-  --model-args "model=openai/<model>,base_url=http://127.0.0.1:8080/v1,api_key=sk-noop" \
-  --tasks "leaderboard|mmlu|5|0" \
-  --output-dir ./results/apple-silicon
+# Run individual benchmarks:
+python scripts/eval_mmlu.py --endpoint http://127.0.0.1:8080 \
+  --model '<served id from /v1/models>' \
+  --model-dir ./weights/<model> --output ./results/mmlu.json
+# Or run the full suite:
+scripts/run_all.sh <model-slug> '<served id>' './weights/<model>'
 ```
 
 ### NVIDIA (vLLM + CUDA) — template

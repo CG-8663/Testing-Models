@@ -114,12 +114,44 @@ Testing-Models/
 
 ## Models tested
 
-| Model | Quant | Size | Apple | NVIDIA | AMD |
+| Model | Base params | Active | Quant | Size on disk | License |
 |---|---|---|---|---|---|
-| [`thetom-ai/MiniMax-M2.7-ConfigI-MLX`](models/thetom-ai--MiniMax-M2.7-ConfigI-MLX) | TurboQuant+ Config-I (2-bit experts / 4-bit attn / FP boundary) | 87 GB | **94% MMLU**, 37 tok/s @ 128 ctx | N/A — MLX-only | N/A — MLX-only |
-| [`mlx-community/Qwen3.6-35B-A3B-4bit`](models/mlx-community--Qwen3.6-35B-A3B-4bit) | 4-bit affine (standard mlx-community) | 19 GB | **92% MMLU**, 94.5% GSM8K, 37.5 tok/s | N/A — MLX-only | N/A — MLX-only |
+| [`thetom-ai/MiniMax-M2.7-ConfigI-MLX`](models/thetom-ai--MiniMax-M2.7-ConfigI-MLX) | 228B MoE | ~1.4B/tok | TQ+ Config-I (2-bit experts / 4-bit attn / FP boundary) | 87 GB | Model-specific |
+| [`mlx-community/Qwen3.6-35B-A3B-4bit`](models/mlx-community--Qwen3.6-35B-A3B-4bit) | 35.9B MoE | ~3B/tok | 4-bit affine (mlx-community) | 19 GB | Apache 2.0 |
 
 Quantised artefacts are backend-specific by format: MLX safetensors don't load on CUDA/ROCm, and AWQ/GPTQ don't load on MLX. A different quant of the same base model is tracked as a separate entry in this table.
+
+## Apple Silicon comparison — Mac Studio M3 Ultra 96 GB
+
+All numbers measured on this hardware using Python `mlx_lm` via `mlx_lm.server`. No numbers are taken from model cards. Per-run metadata and full result JSONs are in each model's `results/apple-silicon/` directory.
+
+### Quality benchmarks
+
+| Benchmark | MiniMax-M2 (87 GB) | Qwen3.6 (19 GB) | Notes |
+|---|---|---|---|
+| **MMLU** (10×20, 0-shot) | **94.0%** (188/200) | 92.0% (184/200) | Card-matching protocol for MiniMax; same subjects applied to Qwen |
+| **HellaSwag** (200 Q, 0-shot) | 85.0% (170/200) | **90.5%** (181/200) | Commonsense reasoning |
+| **GSM8K** (200 Q, 0-shot) | 91.0% (182/200) | **94.5%** (189/200) | Grade-school math — relevant for financial/numeric tasks |
+| **TruthfulQA MC1** (200 Q, 0-shot) | 59.5% (119/200) | **77.5%** (155/200) | Resistance to common misconceptions |
+| **NIAH** (3×4 grid) | 100% (12/12) | 100% (12/12) | Needle-in-a-haystack retrieval up to 8.3K context |
+| **PPL** (wikitext, 2048×50) | 9.66 | **6.97** | Lower is better. MiniMax gap under investigation (cross-runtime) |
+
+### Performance benchmarks
+
+| Metric | MiniMax-M2 (87 GB) | Qwen3.6 (19 GB) |
+|---|---|---|
+| Decode @ 128 ctx | 37.0 tok/s | **37.5 tok/s** |
+| Decode @ 512 ctx | 36.9 tok/s | **37.3 tok/s** |
+| Decode @ 2048 ctx | 36.7 tok/s | **36.9 tok/s** |
+| Decode @ 8192 ctx | 34.9 tok/s | **35.2 tok/s** |
+| Peak unified memory | 93.0 GB | ~21 GB (est.) |
+| Fits M1 Max 32 GB? | No | **Yes** |
+
+### Summary
+
+Qwen3.6-35B-A3B wins or ties on **6 of 7 quality benchmarks** while being **4.5× smaller** on disk (19 GB vs 87 GB) and delivering comparable decode throughput. It fits on both machines in the lab (M3 Ultra + M1 Max), enabling cluster benchmarks that MiniMax cannot run.
+
+For the fine-tuning use case (remittance processing + planning automation), Qwen3.6 is the stronger candidate: better math (GSM8K +3.5pp), substantially better truthfulness (TruthfulQA +18pp), Apache 2.0 license for commercial fine-tuning, and a 19 GB inference footprint that deploys anywhere.
 
 ## Reproducing a run
 

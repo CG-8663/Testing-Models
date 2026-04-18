@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "run_id": "20260417T221016Z",
+    "timestamp_utc": "2026-04-17T22:10:16.199446+00:00",
+    "python": "3.12.13",
+    "packages": {
+      "mlx": "0.31.1",
+      "mlx-lm": "0.31.2",
+      "lighteval": "0.13.0",
+      "datasets": "4.8.3",
+      "transformers": "5.5.4",
+      "requests": "2.33.1",
+      "numpy": "2.4.4"
+    },
+    "hardware": {
+      "platform": "macOS-26.4.1-arm64-arm-64bit",
+      "machine": "arm64",
+      "system": "Darwin",
+      "chip": "Apple M3 Ultra",
+      "memsize_bytes": 103079215104,
+      "iogpu_wired_limit_mb": 94208
+    },
+    "model": {
+      "model_dir": "/Volumes/Chronara-Storage/Projects/test models/models/Qwen3.6-35B-A3B-4bit",
+      "config_json_sha256": "a822a9e48b0aafbe3144ec37d4fb067e178ed96615ce6e4420b3149893cc5767",
+      "tokenizer_json_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+      "index_sha256": "0b28df60e33753a14e816d3b31577ae2c93884c58430a4a6de6ae9ea483842ea",
+      "shard_count": 4
+    },
+    "script": "eval_perplexity.py",
+    "runtime": "mlx_lm.load in-process"
+  },
+  "model_path": "/Volumes/Chronara-Storage/Projects/test models/models/Qwen3.6-35B-A3B-4bit",
+  "dataset": "wikitext",
+  "config": "wikitext-2-raw-v1",
+  "split": "test",
+  "results": {
+    "card_2048_50samples": {
+      "seq_len": 2048,
+      "chunks": 50,
+      "tokens_scored": 102350,
+      "ppl": 6.9693,
+      "elapsed_s": 50.0
+    },
+    "tbqplus_512_20chunks": {
+      "seq_len": 512,
+      "chunks": 20,
+      "tokens_scored": 10220,
+      "ppl": 9.1749,
+      "elapsed_s": 5.8
+    }
+  }
+}

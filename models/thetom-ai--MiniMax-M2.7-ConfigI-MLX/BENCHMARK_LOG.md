@@ -129,10 +129,13 @@ Ran the full pinned protocol overnight (2026-04-16 → 2026-04-17) via `overnigh
 - The PPL gap vs the card is large (2× higher). Card ran with turbo4v2 KV compression on `mlx-swift-lm`; we ran without. Whether turbo4v2 genuinely halves perplexity or there is another methodological factor requires investigation with the Swift runtime.
 - Run ID: `20260417T033810Z`, result: `ppl_20260417T033806Z.json`.
 
-### Step 8 — Supplementary benchmarks (⏳ ready to run overnight 2026-04-17 → 2026-04-18)
-Scripts written: `eval_hellaswag.py`, `eval_gsm8k.py`, `eval_truthfulqa.py`.
-Orchestrator: `overnight_step8.sh` (same pattern as `overnight_run.sh`).
-200 questions each, 0-shot, temp 1.0, max_tokens 4096. Estimated ~7–8 hours total.
+### Step 8 — Supplementary benchmarks (✅)
+Ran overnight 2026-04-17 → 2026-04-18 via `overnight_combined.sh` (Part 1).
+
+- **HellaSwag (200 Q): 170/200 = 85.0%**. Run ID: `20260417T175847Z`.
+- **GSM8K (200 Q): 182/200 = 91.0%**. Run ID: `20260417T175847Z`.
+- **TruthfulQA MC1 (200 Q): 119/200 = 59.5%**. Run ID: `20260417T175847Z`.
+
 HumanEval deferred — requires code execution sandbox.
 
 ### Step 9 — LLM-as-judge / MT-Bench (⏳)

@@ -1,0 +1,214 @@
+{
+  "meta": {
+    "run_id": "20260417T192307Z",
+    "timestamp_utc": "2026-04-17T19:23:07.810672+00:00",
+    "python": "3.12.13",
+    "packages": {
+      "mlx": "0.31.1",
+      "mlx-lm": "0.31.2",
+      "lighteval": "0.13.0",
+      "datasets": "4.8.3",
+      "transformers": "5.5.4",
+      "requests": "2.33.1",
+      "numpy": "2.4.4"
+    },
+    "hardware": {
+      "platform": "macOS-26.4.1-arm64-arm-64bit",
+      "machine": "arm64",
+      "system": "Darwin",
+      "chip": "Apple M3 Ultra",
+      "memsize_bytes": 103079215104,
+      "iogpu_wired_limit_mb": 94208
+    },
+    "model": {
+      "model_dir": "/Volumes/Chronara-Storage/Projects/test models/models/Qwen3.6-35B-A3B-4bit",
+      "config_json_sha256": "a822a9e48b0aafbe3144ec37d4fb067e178ed96615ce6e4420b3149893cc5767",
+      "tokenizer_json_sha256": "87a7830d63fcf43bf241c3c5242e96e62dd3fdc29224ca26fed8ea333db72de4",
+      "index_sha256": "0b28df60e33753a14e816d3b31577ae2c93884c58430a4a6de6ae9ea483842ea",
+      "shard_count": 4
+    },
+    "script": "eval_niah.py",
+    "endpoint": "http://127.0.0.1:8080",
+    "served_model_id": "mlx-community/Qwen3.5-27B-Claude-4.6-Opus-Distilled-MLX-4bit"
+  },
+  "protocol": {
+    "source": "thetom-ai MiniMax-M2.7-ConfigI-MLX card NIAH grid",
+    "context_sizes": [
+      1400,
+      2400,
+      4400,
+      8300
+    ],
+    "depths": [
+      0.1,
+      0.5,
+      0.9
+    ],
+    "temperature": 1.0,
+    "max_tokens": 4096,
+    "needle": "The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.",
+    "question": "Inside the following document is a single secret code for the Chronara Labs Mark IV project. What is that code? Reply with just the code string, nothing else."
+  },
+  "model": "mlx-community/Qwen3.5-27B-Claude-4.6-Opus-Distilled-MLX-4bit",
+  "endpoint": "http://127.0.0.1:8080",
+  "grid": {
+    "1400": {
+      "10pct": true,
+      "50pct": true,
+      "90pct": true
+    },
+    "2400": {
+      "10pct": true,
+      "50pct": true,
+      "90pct": true
+    },
+    "4400": {
+      "10pct": true,
+      "50pct": true,
+      "90pct": true
+    },
+    "8300": {
+      "10pct": true,
+      "50pct": true,
+      "90pct": true
+    }
+  },
+  "overall": {
+    "passed": 12,
+    "total": 12
+  },
+  "records": [
+    {
+      "context_target": 1400,
+      "depth": 0.1,
+      "passed": true,
+      "reasoning": "I need to find the secret code hidden within this document. The document consists primarily of repeated text about monarch butterfly migration. Let me scan through carefully to find any deviation from this pattern.\n\nLooking through the document:\n- The main text repeats information about monarch butterflies migrating to oyamel fir forests in Mexico\n- About one-third of the way through, embedded within the repeated text, I find a sentence that doesn't match the pattern\n\nThe sentence reads: \"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis is clearly the secret code I'm looking for. It matches the expected format (code name/identifier with a hyphenated structure and numbers) and explicitly states it's the secret code for the specified project.\n\nThe code is: BLUE-JAGUAR-1729\n",
+      "content": "\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 1020,
+      "completion_tokens": 184,
+      "latency_s": 8.08
+    },
+    {
+      "context_target": 1400,
+      "depth": 0.5,
+      "passed": true,
+      "reasoning": "I need to carefully examine the provided document to locate the secret code for the Chronara Labs Mark IV project.\n\nScanning through the document:\n- The document consists primarily of repeated paragraphs about monarch butterfly migration\n- Let me search for any text that mentions \"Chronara Labs\" or \"Mark IV\"\n\nFound it! In the middle section of the document, there is a clear statement:\n\"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis sentence is explicitly stating the secret code I'm looking for. The code is formatted as: BLUE-JAGUAR-1729\n\nThis appears to be a straightforward information extraction task where the answer is directly stated in the text, embedded within the repetitive content about monarch butterflies.\n",
+      "content": "\n\nThe secret code for the Chronara Labs Mark IV project is:\n\n**BLUE-JAGUAR-1729**\n\nThis code is explicitly stated in the document in the sentence: \"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"",
+      "finish_reason": "stop",
+      "prompt_tokens": 1020,
+      "completion_tokens": 224,
+      "latency_s": 9.1
+    },
+    {
+      "context_target": 1400,
+      "depth": 0.9,
+      "passed": true,
+      "reasoning": "Let me analyze this document carefully to find the secret code for the Chronara Labs Mark IV project.\n\nThe document consists primarily of repeated passages about monarch butterfly migration. These repetitions appear to be filler text designed to obscure the actual secret code.\n\nI need to search through the entire text for any information related to \"Chronara Labs Mark IV\" or any code-like patterns.\n\nScanning through the document:\n1. The vast majority of the text repeats the same paragraph about monarch butterflies\n2. In the middle section, I can find this distinct line: \"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis sentence is clearly different from the surrounding butterfly text and explicitly states the secret code I'm looking for.\n\nThe code format \"BLUE-JAGUAR-1729\" follows a typical pattern for secret codes:\n- Uppercase letters\n- Hyphenated segments\n- Combination of words and numbers\n- \"BLUE\" - a color\n- \"JAGUAR\" - an animal\n- \"1729\" - a number (notably, this is the Hardy-Ramanujan number, the smallest number expressible as a sum of two cubes in two different ways)\n\nThe code is explicitly stated and matches what the question is asking for.\n",
+      "content": "\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 1020,
+      "completion_tokens": 285,
+      "latency_s": 10.68
+    },
+    {
+      "context_target": 2400,
+      "depth": 0.1,
+      "passed": true,
+      "reasoning": "I need to find the secret code hidden within this document. Let me read through the text carefully.\n\nThe document consists mostly of repetitive text about monarch butterflies migrating to Mexico. This appears to be filler content designed to obscure the actual information I'm looking for.\n\nLet me scan for anything that doesn't match the pattern or explicitly mentions a code.\n\nReading through:\n- The document starts with text about monarch butterflies\n- The text repeats multiple times\n- About 1/4 of the way through, I notice this line: \"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n- After that, the butterfly text continues and repeats many more times\n\nThe code is explicitly stated in the document - it's not hidden through some cipher or puzzle. The instruction says the code is \"inside\" the document, and it is directly written there, just surrounded by a lot of repetitive filler text to make it harder to spot at a glance.\n\nThe code format \"BLUE-JAGUAR-1729\" is consistent with typical code conventions:\n- UPPER CASE LETTERS\n- A descriptive word (BLUE)\n- A dash\n- Another word (JAGUAR - perhaps a codename)\n- A dash\n- Numbers (1729)\n\nThis is clearly the secret code I was asked to find.\n",
+      "content": "\n\nThe secret code hidden in the document is:\n\n**BLUE-JAGUAR-1729**\n\nIt appears explicitly in the text as: \"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis statement is embedded within the repetitive text about monarch butterfly migration, which serves as filler content to make the code harder to find at first glance.",
+      "finish_reason": "stop",
+      "prompt_tokens": 1697,
+      "completion_tokens": 368,
+      "latency_s": 14.9
+    },
+    {
+      "context_target": 2400,
+      "depth": 0.5,
+      "passed": true,
+      "reasoning": "I need to carefully examine this document to find the secret code for the Chronara Labs Mark IV project.\n\nThe document consists primarily of repeated text about monarch butterfly migrations. Let me scan through the content systematically:\n\n1. The document opens with repeated paragraphs about monarch butterfly migration\n2. Scanning through... I notice that about halfway through, there's a line that breaks the pattern:\n   \"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n3. This is immediately followed by the resumption of the butterfly text\n\nLet me verify:\n- The text before this line: \"...Each autumn, the population\"\n- The code line: \"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n- The text after: \" funnels toward specific oyamel fir forests...\"\n\nThe sentence \"Each autumn, the population funnels toward specific oyamel fir forests...\" was split by the insertion of the code line, confirming this was deliberately hidden within the repeated text.\n\nThe code is clearly stated: BLUE-JAGUAR-1729\n",
+      "content": "\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 1697,
+      "completion_tokens": 248,
+      "latency_s": 11.79
+    },
+    {
+      "context_target": 2400,
+      "depth": 0.9,
+      "passed": true,
+      "reasoning": "I need to carefully analyze the document to find the secret code for the Chronara Labs Mark IV project.\n\nLet me scan through the document systematically:\n\n1. The document appears to consist mainly of repeated paragraphs about monarch butterfly migration\n2. I need to look for any text that doesn't fit this pattern or might contain the hidden code\n\nScanning through the content:\n- The repeated text discusses monarch butterflies migrating to Mexico\n- About 3/4 of the way through the document, I notice something different\n\nLooking more carefully at this section:\n\"The migration of monarch butterflies across North America is one of the longest insect journeys on record...\"\n\nThen I find this text that breaks the pattern:\n\"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis sentence explicitly states the secret code I'm looking for.\n\nThe code format (BLUE-JAGUAR-1729) appears to follow a typical pattern:\n- Color name (BLUE)\n- Animal name (JAGUAR)  \n- Number (1729, which is notable as Ramanujan's famous \"hardy-ramanujan number\")\n\nThis is clearly the intended hidden code within the document of repetitive text.\n",
+      "content": "\n\n# Solution\n\nAfter carefully examining the document, I found the secret code hidden within the repetitive text about monarch butterfly migration.\n\nThe document consists mostly of repeated paragraphs describing monarch butterfly migration patterns. However, embedded within this text (approximately 3/4 of the way through) is this sentence:\n\n\"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis explicitly reveals the code I was searching for. The code follows a logical format: a color (BLUE), an animal (JAGUAR), and the number 1729 (which is famous in mathematics as the Hardy-Ramanujan number - the smallest number expressible as the sum of two cubes in two different ways).\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 1697,
+      "completion_tokens": 420,
+      "latency_s": 16.24
+    },
+    {
+      "context_target": 4400,
+      "depth": 0.1,
+      "passed": true,
+      "reasoning": "Let me analyze this document carefully to find the secret code.\n\nThe document consists mainly of repetitive text about monarch butterfly migration. I need to search through this text for any embedded code.\n\nReading through the document, I notice that in the first paragraph, after the sentence \"Each autumn, the population funnels toward specific oyamel fir forests in central Mexico where the microclimate suits their winter dormancy,\" there is a line that breaks the pattern:\n\n\"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis sentence explicitly states the secret code I'm looking for.\n\nThe code format is:\n- BLUE (a color)\n- HYPHEN\n- JAGUAR (an animal)\n- HYPHEN\n- 1729 (a number - notably this is the Hardy-Ramanujan number, famously the smallest number expressible as the sum of two cubes in two different ways)\n\nThis appears to be embedded directly in the text as an explicit statement, rather than being hidden through some encoding mechanism. The code is clearly stated as BLUE-JAGUAR-1729.\n",
+      "content": "\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 3052,
+      "completion_tokens": 247,
+      "latency_s": 16.02
+    },
+    {
+      "context_target": 4400,
+      "depth": 0.5,
+      "passed": true,
+      "reasoning": "I need to find the secret code hidden within this document about monarch butterflies.\n\nFirst, I'll scan the document holistically. The vast majority of the text is repetitive content about monarch butterfly migration - the same sentences repeated many times about their journey across North America to oyamel fir forests in Mexico.\n\nHowever, I notice something distinctive embedded within this repetitive text. About halfway through the document, there's a sentence that breaks the pattern:\n\n\"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis sentence:\n1. Explicitly references \"the secret code\" and \"the Chronara Labs Mark IV project\" - which matches exactly what the question is asking for\n2. Is different from all the other sentences in the document (not about butterflies)\n3. Contains a code in the format BLUE-JAGUAR-1729 (uppercase, hyphenated, with a numeric suffix)\n\nThis appears to be the hidden secret code placed among the repetitive butterfly text as a form of camouflage - making it harder to spot at first glance because the reader's attention is drawn to the repetitive, meaningful content about butterflies.\n\nThe code format is also typical of project codes: a descriptive name (BLUE-JAGUAR) followed by a numeric identifier (1729).\n\nI can confidently extract this as the answer.\n",
+      "content": "\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 3052,
+      "completion_tokens": 291,
+      "latency_s": 17.16
+    },
+    {
+      "context_target": 4400,
+      "depth": 0.9,
+      "passed": true,
+      "reasoning": "Let me work through this problem step by step.\n\nFirst, I need to understand what's being asked: Inside the following document is a single secret code for the Chronara Labs Mark IV project. What is that code? Reply with just the code string, nothing else.\n\nDocument:\nThe migration of monarch butterflies across North America is one of the longest insect journeys on record, spanning multiple generations and thousands of kilometres. Each autumn, the population funnels toward sp\n\nKey values given: ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,, ,\n\nWorking through the calculation: I need to find a secret code hidden within this document about monarch butterflies. Let me analyze the text carefully to locate any code that has been inserted. Looking through the repetitive text about monarch butterflies, I need to find where the secret code has been hidden. Scanning through the document...\n\nI found it. Hidden in the middle of the text is:\n\n\"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis sentence breaks the pattern of the repetitive text about monarch butterflies and directly states the secret code. BLUE-JAGUAR-1729\n",
+      "content": "\n\nI need to find a secret code hidden within this document about monarch butterflies. Let me analyze the text carefully to locate any code that has been inserted.\n\nLooking through the repetitive text about monarch butterflies, I need to find where the secret code has been hidden. Scanning through the document...\n\nI found it. Hidden in the middle of the text is:\n\n\"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis sentence breaks the pattern of the repetitive text about monarch butterflies and directly states the secret code.\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 3052,
+      "completion_tokens": 382,
+      "latency_s": 19.55
+    },
+    {
+      "context_target": 8300,
+      "depth": 0.1,
+      "passed": true,
+      "reasoning": "Let me think about how to approach this coding problem.\n\nProblem: Inside the following document is a single secret code for the Chronara Labs Mark IV project. What is that code? Reply with just the code string, nothing else.\n\nDocument:\nThe migration of monarch butterflies across North America is one of the longest insect journeys on record, spanning multiple generations and thousands of kilometres. Each autumn, the population funn\n\nApproach: - Hidden Keys/Morse Code: Encoded within the text\n\nLet me implement this solution.\n",
+      "content": "\n\nI need to carefully search through this document to find the secret code for the Chronara Labs Mark IV project.\n\nThe document consists primarily of repeated paragraphs about monarch butterfly migration. Let me search systematically for any text that doesn't match this pattern and could be the hidden code.\n\nLooking through the text carefully...\n\nI found it! About one-third of the way through the document, embedded within the repeated text about monarch butterflies, there is this sentence:\n\n**\"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"**\n\nThis is the only sentence in the entire document that explicitly mentions \"secret code\" and \"Chronara Labs Mark IV project\" - it doesn't match the butterfly migration narrative and is clearly the hidden information I was looking for.\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 5694,
+      "completion_tokens": 282,
+      "latency_s": 25.26
+    },
+    {
+      "context_target": 8300,
+      "depth": 0.5,
+      "passed": true,
+      "reasoning": "Let me work through this problem step by step.\n\nFirst, I need to understand what's being asked: Inside the following document is a single secret code for the Chronara Labs Mark IV project. What is that code? Reply with just the code string, nothing else.\n\nDocument:\nThe migration of monarch butterflies across North America is one of the longest insect journeys on record, spanning multiple generations and thousands of kilometres. Each autumn, the population funnels toward specific oyamel fir f\n\nKey values given: ,, ,, ,, ,, ,, ,, ,, ,, ,, ,\n\nMy approach:\n1. Analyze the document structure\n- The document consists primarily of repeated text about monarch butterfly migrations\n- This repetition appears to be filler/decoy content\n- I need to search for something that breaks this pattern\n2. Search for the secret code\n- I'll look for any text that doesn't match the butterfly pattern\n3. Verify the code is the only one\n\nThis gives us the final answer: BLUE-JAGUAR-1729\n",
+      "content": "\n\n# Solution\n\nI need to locate the secret code hidden within the provided document.\n\n## Reasoning Process\n\n**Step 1: Analyze the document structure**\n- The document consists primarily of repeated text about monarch butterfly migrations\n- This repetition appears to be filler/decoy content\n- I need to search for something that breaks this pattern\n\n**Step 2: Search for the secret code**\n- Scanning through the document for any non-butterfly text\n- The code would likely be explicitly labeled or stand out from the repeating pattern\n\n**Step 3: Locate the code**\n- Found embedded in the middle of the document, breaking the pattern of repeated butterfly text:\n  - \"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\n**Step 4: Verify the code is the only one**\n- The document explicitly states \"a single secret code\"\n- Only one such code appears in the entire document\n- The code format (BLUE-JAGUAR-1729) with hyphens and a combination of letters and numbers is consistent with typical security codes\n\n## Final Answer\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 5694,
+      "completion_tokens": 465,
+      "latency_s": 30.21
+    },
+    {
+      "context_target": 8300,
+      "depth": 0.9,
+      "passed": true,
+      "reasoning": "Let me carefully analyze this document to find the secret code for the Chronara Labs Mark IV project.\n\nThe document appears to contain repeated text about monarch butterfly migration. Let me search through it systematically for any hidden code.\n\nLooking through the document, I notice:\n\n1. Most of the text is repetitive content about monarch butterflies\n2. About halfway through the document, I spot a line that breaks the pattern:\n\n\"The secret code for the Chronara Labs Mark IV project is BLUE-JAGUAR-1729.\"\n\nThis sentence explicitly states the secret code and matches the exact format described in the task (it's for the \"Chronara Labs Mark IV project\").\n\nThe code format (BLUE-JAGUAR-1729) follows a typical pattern for such codes:\n- Color (BLUE)\n- Hyphen\n- Animal (JAGUAR) \n- Hyphen\n- Number (1729, which is also the famous Hardy-Ramanujan number)\n\nThis is clearly the hidden code embedded within the repetitive text.\n",
+      "content": "\n\nBLUE-JAGUAR-1729",
+      "finish_reason": "stop",
+      "prompt_tokens": 5694,
+      "completion_tokens": 226,
+      "latency_s": 23.75
+    }
+  ]
+}

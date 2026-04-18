@@ -33,13 +33,29 @@ All numbers below come from protocol runs on **Mac Studio M3 Ultra 96 GB, Python
 
 | Metric | Measured | Run ID |
 |---|---|---|
-| MMLU (10×20) | ⏳ pending | — |
-| HellaSwag (200 Q) | ⏳ pending | — |
-| GSM8K (200 Q) | ⏳ pending | — |
-| TruthfulQA MC1 (200 Q) | ⏳ pending | — |
-| NIAH (3×4 grid) | ⏳ pending | — |
-| Decode @ 128 ctx | ⏳ pending | — |
-| Decode @ 8192 ctx | ⏳ pending | — |
+| MMLU (10×20) | **184/200 = 92.0%** | `20260417T175847Z` |
+| HellaSwag (200 Q) | **181/200 = 90.5%** | `20260417T175847Z` |
+| GSM8K (200 Q) | **189/200 = 94.5%** | `20260418T010111Z` |
+| TruthfulQA MC1 (200 Q) | **155/200 = 77.5%** | `20260417T175847Z` |
+| NIAH (3×4 grid) | **12/12 = 100%** | `20260417T175847Z` |
+| Decode @ 128 ctx | **37.5 tok/s** (median) | `20260417T175847Z` |
+| Decode @ 8192 ctx | **35.2 tok/s** (median) | `20260417T175847Z` |
+| PPL (card: 2048×50) | **6.9693** | `20260417T175847Z` |
+| PPL (TBQ+: 512×20) | **9.1749** | `20260417T175847Z` |
+
+### Cross-model comparison (vs MiniMax-M2.7-ConfigI-MLX)
+
+| Benchmark | Qwen3.6 (19 GB) | MiniMax-M2 (87 GB) | Winner |
+|---|---|---|---|
+| MMLU | 92.0% | **94.0%** | MiniMax (+2pp) |
+| HellaSwag | **90.5%** | 85.0% | Qwen (+5.5pp) |
+| GSM8K | **94.5%** | 91.0% | Qwen (+3.5pp) |
+| TruthfulQA | **77.5%** | 59.5% | Qwen (+18pp) |
+| NIAH | 100% | 100% | Tie |
+| Decode @ 128 ctx | **37.5 tok/s** | 37.0 tok/s | ~Tie |
+| PPL (2048×50) | **6.97** | 9.66 | Qwen |
+
+Qwen3.6 wins or ties on 6 of 7 benchmarks while being **4.5× smaller** on disk (19 GB vs 87 GB). For the fine-tuning use case (remittance + planning automation), Qwen3.6 is the stronger candidate: better math (GSM8K), better truthfulness (TruthfulQA), comparable speed, and fits on both machines.
 
 See [`BENCHMARK_LOG.md`](BENCHMARK_LOG.md) for the chronological run.
 
